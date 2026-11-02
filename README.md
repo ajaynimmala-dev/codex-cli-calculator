@@ -58,6 +58,10 @@ docker compose up --build
 
 Open `http://localhost:8000`. FastAPI serves the Angular production build and the API from the same origin; interactive API documentation is at `/docs`. Set `APP_PORT` if port 8000 is already in use. Stop the service with `docker compose down`.
 
+## GitHub Container Registry
+
+The Docker workflow builds the image on pull requests and publishes it to `ghcr.io/<owner>/<repository>` for pushes to `main`, version tags (`v*`), and manual runs. Published images receive branch or version tags, a commit SHA tag, and `latest` for the default branch. GitHub Actions uses the repository's `GITHUB_TOKEN`; no separate registry secret is needed.
+
 Set `CORS_ORIGINS` to a comma-separated list of allowed browser origins when deploying (the defaults are `http://localhost:4200` and `http://127.0.0.1:4200`). Set `APP_NAME` to customize the API title.
 
 ## API
