@@ -58,6 +58,10 @@ docker compose up --build
 
 Open `http://localhost:8000`. FastAPI serves the Angular production build and the API from the same origin; interactive API documentation is at `/docs`. Set `APP_PORT` if port 8000 is already in use. Stop the service with `docker compose down`.
 
+## Deploy to Render
+
+The root `render.yaml` defines a Docker web service with `/health` as its health check. In the Render Dashboard, choose **New > Blueprint**, connect this GitHub repository, and deploy the detected Blueprint. Render supplies `PORT`; the container binds to it and serves both Angular and the API from the same origin.
+
 ## GitHub Container Registry
 
 The Docker workflow builds the image on pull requests and publishes it to `ghcr.io/<owner>/<repository>` for pushes to `main`, version tags (`v*`), and manual runs. Published images receive branch or version tags, a commit SHA tag, and `latest` for the default branch. GitHub Actions uses the repository's `GITHUB_TOKEN`; no separate registry secret is needed.
