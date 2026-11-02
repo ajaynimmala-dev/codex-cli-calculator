@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: modular-calculator
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: APP_NAME
+        value: Modular Calculator API
