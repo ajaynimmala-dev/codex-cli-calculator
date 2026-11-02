@@ -2,6 +2,8 @@
 
 A small calculator split into a FastAPI backend and an Angular frontend. The API owns the calculation rules; Angular provides the browser interface.
 
+**Container image:** [ghcr.io/ajaynimmala-dev/codex-cli-calculator](https://github.com/ajaynimmala-dev/codex-cli-calculator/pkgs/container/codex-cli-calculator)
+
 ## Project layout
 
 ```text
@@ -60,7 +62,7 @@ Open `http://localhost:8000`. FastAPI serves the Angular production build and th
 
 ## GitHub Container Registry
 
-The Docker workflow builds the image on pull requests and publishes it to `ghcr.io/<owner>/<repository>` for pushes to `main`, version tags (`v*`), and manual runs. Published images receive branch or version tags, a commit SHA tag, and `latest` for the default branch. GitHub Actions uses the repository's `GITHUB_TOKEN`; no separate registry secret is needed.
+The Docker workflow builds the image on pull requests and publishes it to [`ghcr.io/ajaynimmala-dev/codex-cli-calculator`](https://github.com/ajaynimmala-dev/codex-cli-calculator/pkgs/container/codex-cli-calculator) for pushes to `main`, version tags (`v*`), and manual runs. Published images receive branch or version tags, a commit SHA tag, and `latest` for the default branch. Pull an image with `docker pull ghcr.io/ajaynimmala-dev/codex-cli-calculator:latest`. GitHub Actions uses the repository's `GITHUB_TOKEN`; no separate registry secret is needed.
 
 Set `CORS_ORIGINS` to a comma-separated list of allowed browser origins when deploying (the defaults are `http://localhost:4200` and `http://127.0.0.1:4200`). Set `APP_NAME` to customize the API title.
 
