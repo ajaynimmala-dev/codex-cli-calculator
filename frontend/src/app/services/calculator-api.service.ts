@@ -6,7 +6,7 @@ import { CalculationRequest, CalculationResponse } from '../models/calculation.m
 @Injectable({ providedIn: 'root' })
 export class CalculatorApiService {
   private readonly http = inject(HttpClient);
-  private readonly apiUrl = 'http://127.0.0.1:8000/api';
+  private readonly apiUrl = '/api';
 
   calculate(request: CalculationRequest): Observable<CalculationResponse> {
     return this.http.post<CalculationResponse>(`${this.apiUrl}/calculate`, request);

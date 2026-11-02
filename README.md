@@ -46,7 +46,17 @@ npm install
 npm start
 ```
 
-Open `http://localhost:4200`. The Angular app calls the FastAPI backend at `http://127.0.0.1:8000/api`.
+Open `http://localhost:4200`. The Angular development server proxies API requests to FastAPI.
+
+## Run the production app with Docker Compose
+
+From the project root:
+
+```bash
+docker compose up --build
+```
+
+Open `http://localhost:8000`. FastAPI serves the Angular production build and the API from the same origin; interactive API documentation is at `/docs`. Set `APP_PORT` if port 8000 is already in use. Stop the service with `docker compose down`.
 
 Set `CORS_ORIGINS` to a comma-separated list of allowed browser origins when deploying (the defaults are `http://localhost:4200` and `http://127.0.0.1:4200`). Set `APP_NAME` to customize the API title.
 
